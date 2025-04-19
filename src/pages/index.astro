@@ -1,11 +1,362 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Kalila | Professional Belly Dancer">
+	<div class="hero">
+		<div class="hero-overlay"></div>
+		<div class="hero-content">
+			<h1>Kalila</h1>
+			<p class="subtitle">Professional Belly Dancer & Performer</p>
+			<div class="scroll-indicator">
+				<span></span>
+			</div>
+		</div>
+	</div>
+
+	<section class="video-section">
+		<div class="container">
+			<h2>Featured Performance</h2>
+			<div class="video-container">
+				<iframe
+					width="100%"
+					height="100%"
+					src="https://www.youtube.com/embed/6pndBSqO7yY"
+					title="Kalila Belly Dance Performance"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			</div>
+		</div>
+	</section>
+
+	<section id="about" class="about-section">
+		<div class="container">
+			<h2>About Kalila</h2>
+			<div class="about-content">
+				<p>Experience the enchanting art of belly dance through the graceful movements and captivating performances of Kalila. With years of dedicated practice and a deep appreciation for the cultural heritage of belly dance, Kalila brings passion and authenticity to every performance.</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="performances" class="performances-section">
+		<div class="container">
+			<h2>Performances</h2>
+			<div class="services">
+				<div class="service-card">
+					<div class="card-icon">🎭</div>
+					<h3>Private Events</h3>
+					<p>Make your special occasion memorable with a mesmerizing belly dance performance.</p>
+				</div>
+				<div class="service-card">
+					<div class="card-icon">💃</div>
+					<h3>Workshops</h3>
+					<p>Learn the art of belly dance through personalized instruction and group classes.</p>
+				</div>
+				<div class="service-card">
+					<div class="card-icon">✨</div>
+					<h3>Shows</h3>
+					<p>Regular performances at select venues and cultural events.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact" class="contact-section">
+		<div class="container">
+			<h2>Contact</h2>
+			<p>Interested in booking a performance or learning more? Get in touch!</p>
+			<a href="mailto:andwilson88@gmail.com" class="cta-button">Contact Now</a>
+		</div>
+	</section>
 </Layout>
+
+<style>
+	.hero {
+		height: 100vh;
+		background: url('/ucsb_mee.png') center/cover no-repeat;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: white;
+		margin-top: -80px;
+		overflow: hidden;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 800px;
+		padding: 0 2rem;
+	}
+
+	.hero-content h1 {
+		font-family: 'Great Vibes', cursive;
+		font-size: 5rem;
+		margin-bottom: 1rem;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.subtitle {
+		font-size: 1.8rem;
+		opacity: 0.9;
+		margin-bottom: 3rem;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	}
+
+	.scroll-indicator {
+		position: absolute;
+		bottom: 2rem;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.scroll-indicator span {
+		display: block;
+		width: 30px;
+		height: 30px;
+		border-bottom: 2px solid var(--gold);
+		border-right: 2px solid var(--gold);
+		transform: rotate(45deg);
+		animation: scroll 2s infinite;
+	}
+
+	@keyframes scroll {
+		0% {
+			opacity: 0;
+			transform: rotate(45deg) translate(-20px, -20px);
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+			transform: rotate(45deg) translate(20px, 20px);
+		}
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 4rem 1rem;
+	}
+
+	section {
+		padding: 6rem 0;
+	}
+
+	.video-section {
+		background-color: var(--dark-bg);
+		color: white;
+		position: relative;
+	}
+
+	.video-section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+		opacity: 0.1;
+	}
+
+	.video-container {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+		max-width: 800px;
+		margin: 0 auto;
+		border-radius: 8px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+		border: 2px solid var(--gold);
+	}
+
+	.video-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.about-content {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 1.1rem;
+		line-height: 1.8;
+	}
+
+	.services {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2.5rem;
+		margin-top: 3rem;
+	}
+
+	.service-card {
+		padding: 2.5rem;
+		background: white;
+		border-radius: 8px;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.service-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 4px;
+		background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+		transform: scaleX(0);
+		transition: transform 0.3s ease;
+	}
+
+	.service-card:hover {
+		transform: translateY(-10px);
+	}
+
+	.service-card:hover::before {
+		transform: scaleX(1);
+	}
+
+	.card-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.service-card h3 {
+		color: var(--gold);
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+	}
+
+	.contact-section {
+		background-color: #f9f9f9;
+		text-align: center;
+		position: relative;
+	}
+
+	.contact-section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+		opacity: 0.1;
+	}
+
+	.cta-button {
+		display: inline-block;
+		padding: 1rem 2.5rem;
+		margin-top: 2rem;
+		background: linear-gradient(135deg, var(--gold), var(--gold-light));
+		color: white;
+		text-decoration: none;
+		border-radius: 30px;
+		transition: all 0.3s ease;
+		font-weight: 600;
+		box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cta-button:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+	}
+
+	@media (max-width: 768px) {
+		.hero-content h1 {
+			font-size: 3.5rem;
+		}
+
+		.subtitle {
+			font-size: 1.4rem;
+		}
+
+		section {
+			padding: 4rem 0;
+		}
+
+		.service-card {
+			padding: 2rem;
+		}
+	}
+</style>
+
+<script>
+	// Add form submission handling
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.querySelector('.contact-form');
+		if (form) {
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				
+				const submitButton = form.querySelector('button[type="submit"]');
+				if (submitButton) {
+					submitButton.disabled = true;
+					submitButton.textContent = 'Sending...';
+				}
+
+				try {
+					const formData = new FormData(form);
+					const response = await fetch('/api/contact', {
+						method: 'POST',
+						body: formData
+					});
+
+					const result = await response.json();
+
+					if (response.ok) {
+						// Show success message
+						form.innerHTML = `
+							<div class="success-message">
+								<h3>Thank you for your message!</h3>
+								<p>I'll get back to you as soon as possible.</p>
+							</div>
+						`;
+					} else {
+						throw new Error(result.message || 'Something went wrong');
+					}
+				} catch (error) {
+					// Show error message
+					form.innerHTML = `
+						<div class="error-message">
+							<h3>Oops! Something went wrong</h3>
+							<p>${error.message}</p>
+							<button onclick="window.location.reload()">Try Again</button>
+						</div>
+					`;
+				}
+			});
+		}
+	});
+</script>
